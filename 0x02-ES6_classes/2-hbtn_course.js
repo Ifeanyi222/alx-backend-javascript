@@ -1,41 +1,43 @@
-class HolbertonCourse:
-    def __init__(self, name, length, students):
-        self._name = None
-        self._length = None
-        self._students = None
-        self.name = name
-        self.length = length
-        self.students = students
-        
-    @property
-    def name(self):
-        return self._name
-    
-    @name.setter
-    def name(self, value):
-        if isinstance(value, str):
-            self._name = value
-        else:
-            raise TypeError("name attribute must be a string")
-    
-    @property
-    def length(self):
-        return self._length
-    
-    @length.setter
-    def length(self, value):
-        if isinstance(value, int):
-            self._length = value
-        else:
-            raise TypeError("length attribute must be an integer")
-    
-    @property
-    def students(self):
-        return self._students
-    
-    @students.setter
-    def students(self, value):
-        if isinstance(value, list) and all(isinstance(x, str) for x in value):
-            self._students = value
-        else:
-            raise TypeError("students attribute must be a list of strings")
+export default class HolbertonCourse {
+    consructor(name, length, students) {
+        if not isinstance(name, str):
+            raise TypeError("Name must be a string")
+        if not isinstance(length, (int, float)):
+            raise TypeError("Length must be a number")
+        if not isinstance(students, list) or not all(isinstance(s, str) for s in students):
+            raise TypeError("Students must be a list of strings")
+	
+	this._name = name;
+        this._length = length;
+        this._students = students;
+       }
+       
+       get name() {
+	 return this.name;
+       }
+       set name(name) {
+        if not isinstance(name, str):
+            raise TypeError("Name must be a string")
+        this._name = name;
+       }
+
+       get length() {
+        return this._length;
+       }
+
+       set length(length) {
+        if not isinstance(length, (int, float)):
+            raise TypeError("Length must be a number")
+        this._length = length;
+       }
+
+       get students() {
+        return this._students;
+       }
+
+       set students(students) {
+        if not isinstance(students, list) or not all(isinstance(s, str) for s in students):
+            raise TypeError("Students must be a list of strings")
+        this._students = students;
+       }
+}
